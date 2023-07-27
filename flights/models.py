@@ -6,6 +6,7 @@ class Airport(models.Model):
     code = models.CharField(max_length=3)
     city = models.CharField(max_length=64)
 
+    # Standard function for displaying information about model
     def __str__(self):
         return f"{self.city} ({self.code})"
 
@@ -28,5 +29,6 @@ class Passenger(models.Model):
     last_name = models.CharField(max_length=64)
     flights = models.ManyToManyField(Flight, blank=True, related_name="passengers")
 
+    # Standard function for displaying information about model
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
