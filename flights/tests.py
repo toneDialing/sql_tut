@@ -50,6 +50,8 @@ class FlightTestCase(TestCase):
         response = c.get("/flights/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["flights"].count(), 3)
+        # response.context accesses the 'context' (in form of Python dict)
+        # that was optionally provided in views.py
 
     def test_valid_flight_page(self):
         a1 = Airport.objects.get(code="AAA")
